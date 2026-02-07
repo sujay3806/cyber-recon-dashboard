@@ -14,6 +14,9 @@ from slowapi.errors import RateLimitExceeded
 from fastapi.responses import JSONResponse
 from fastapi import Request
 import socket
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
 
 
 app=FastAPI(title="Cyber_Recon_Dashboard_API")
@@ -115,3 +118,15 @@ def legal_notice():
     return {
         "notice": "This tool is for educational and authorized security testing only. Do not scan systems without permission."
     }
+
+# Serve React static files
+app.mount("/static", StaticFiles(directory="build/static"), name="static")
+
+@app.get("/{full_path:path}")
+async def serve_react_app(full_path: str):
+    file_path = os.path.join("build", full_path)
+
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+
+    return FileResponse("build/index.html")
