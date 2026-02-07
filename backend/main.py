@@ -120,13 +120,25 @@ def legal_notice():
     }
 
 # Serve React static files
-app.mount("/static", StaticFiles(directory="build/static"), name="static")
+# ---------------- SERVE REACT FRONTEND ----------------
+
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+app.mount(
+    "/static",
+    StaticFiles(directory=os.path.join(BASE_DIR, "build/static")),
+    name="static",
+)
+
+@app.get("/")
+def serve_root():
+    return FileResponse(os.path.join(BASE_DIR, "build/index.html"))
 
 @app.get("/{full_path:path}")
-async def serve_react_app(full_path: str):
-    file_path = os.path.join("build", full_path)
+def serve_react_app(full_path: str):
+    return FileResponse(os.path.join(BASE_DIR, "build/index.html"))
 
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-
-    return FileResponse("build/index.html")
