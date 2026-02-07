@@ -20,6 +20,16 @@ import os
 
 
 app=FastAPI(title="Cyber_Recon_Dashboard_API")
+# Path to React build folder
+build_path = os.path.join(os.path.dirname(__file__), "build")
+
+# Serve static files
+if os.path.exists(build_path):
+    app.mount("/static", StaticFiles(directory=os.path.join(build_path, "static")), name="static")
+
+    @app.get("/")
+    async def serve_react():
+        return FileResponse(os.path.join(build_path, "index.html"))
 
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
@@ -33,9 +43,7 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def read_root():
-    return {"message":"Backend running"};
+
 
 @app.exception_handler(RateLimitExceeded)
 def rate_limit_handler(request, exc):
