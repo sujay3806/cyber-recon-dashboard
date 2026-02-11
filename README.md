@@ -1,7 +1,3 @@
-Perfect — here’s a **professional GitHub README** you can copy-paste 🔥
-
----
-
 # 🔐 Cyber Recon Dashboard
 
 A full-stack **Cybersecurity Intelligence & Reconnaissance Platform** that combines port scanning, vulnerability intelligence, IP reputation, malware analysis, and live cyber threat news into one interactive dashboard.
