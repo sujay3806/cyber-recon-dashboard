@@ -1,135 +1,146 @@
-🛡️ Cyber Recon & Threat Intelligence Dashboard
+Perfect — here’s a **professional GitHub README** you can copy-paste 🔥
 
-A full-stack Cybersecurity Reconnaissance and Intelligence Platform that combines:
+---
 
-Network scanning
+# 🔐 Cyber Recon Dashboard
 
-OS fingerprinting
+A full-stack **Cybersecurity Intelligence & Reconnaissance Platform** that combines port scanning, vulnerability intelligence, IP reputation, malware analysis, and live cyber threat news into one interactive dashboard.
 
-Service banner detection
+Built as a **learning + security research project** demonstrating how real-world recon and threat intelligence systems work.
 
-CVE vulnerability intelligence
+---
 
-IP reputation analysis
+## 🚀 Features
 
-Malware URL scanning
+| Feature                      | Description                                   |
+| ---------------------------- | --------------------------------------------- |
+| ⚡ Async Port Scanner         | Scans ports using asyncio for high speed      |
+| 🖥 OS Fingerprinting         | Detects OS using TTL values                   |
+| 🏴 Banner Grabbing           | Identifies running services                   |
+| 🚨 CVE Vulnerability Mapping | Links services to known vulnerabilities       |
+| 🌍 IP Reputation Check       | Checks if IP is malicious (AbuseIPDB)         |
+| 🦠 URL Malware Scan          | Scans URLs using VirusTotal                   |
+| 📰 Cybersecurity News        | Live threat news carousel                     |
+| 🧪 Demo Mode                 | Safe simulated scanning for public deployment |
+| ⬇ Local Scanner Download     | Users can scan their own machine legally      |
+| 🛡 Security Protections      | Rate limiting + scan restrictions             |
 
-Live cybersecurity news
+---
 
-Built using FastAPI + Async Python + Threat Intelligence APIs.
+## 🧠 Tech Stack
 
-🚀 Features
-Module	Description
-⚡ Async Port Scanner	High-performance port scanning using asyncio
-🖥 OS Detection	TTL-based OS fingerprinting
-🏷 Banner Grabbing	Identifies services running on open ports
-🧨 CVE Mapping	Matches services to vulnerabilities via NVD
-🌍 IP Reputation	Checks abuse history using AbuseIPDB
-🦠 Malware URL Scan	URL threat detection via VirusTotal
-📰 Threat News Feed	Real-time cybersecurity headlines
-🔒 Safe Scanning Policy	Prevents scanning public/external systems
-⏱ Rate Limiting	Prevents API abuse
-⚠️ Legal Notice
+### Backend
 
-This tool is for educational and authorized security testing only.
-Do not scan systems without permission.
+* **FastAPI** – High-performance API framework
+* **Asyncio** – Concurrent port scanning
+* **Python Sockets** – TCP connection scanning
+* **SlowAPI** – Rate limiting
+* **Requests** – External API calls
 
-🧠 How It Works
-User Request → Backend Scanner → Threat Intelligence APIs → Results Dashboard
+### Frontend
 
+* **React** – Interactive UI
+* **Tailwind CSS** – Modern styling
+* **Framer Motion** – Smooth animations
+* **Axios** – API communication
 
-Flow:
+---
 
-Target is validated (only private/local IPs allowed)
+## 🌐 APIs Used
 
-Ports are scanned asynchronously
+| API                                   | Purpose                  |
+| ------------------------------------- | ------------------------ |
+| NVD (National Vulnerability Database) | CVE vulnerability lookup |
+| AbuseIPDB                             | IP reputation scoring    |
+| VirusTotal                            | Malware URL analysis     |
+| NewsAPI                               | Cybersecurity news feed  |
 
-Services are identified
+---
 
-Vulnerabilities are fetched from NVD
+## 🧩 How It Works (User Flow)
 
-IP reputation & malware checks are performed
+1. User opens dashboard
+2. Enters IP & port range
+3. Backend validates target
+4. Async scanner checks ports
+5. Banner grabbing identifies service
+6. CVE API maps vulnerabilities
+7. Results shown in table
+8. User can also check IP reputation or scan a URL
+9. News panel updates automatically
 
-Cyber threat news is displayed
+---
 
-🛠 Installation
-1️⃣ Clone repository
-git clone https://github.com/yourusername/cyber-recon-dashboard.git
-cd cyber-recon-dashboard/backend
+## ⚙ Installation (Backend)
 
-2️⃣ Install dependencies
+```bash
+git clone https://github.com/YOUR_USERNAME/cyber-recon-dashboard.git
+cd backend
 pip install -r requirements.txt
-
-3️⃣ Setup environment variables
-
-Create .env inside backend/:
-
-NVD_API_KEY=your_key_here
-VIRUSTOTAL_API_KEY=your_key_here
-ABUSEIPDB_API_KEY=your_key_here
-NEWS_API_KEY=your_key_here
-
-4️⃣ Run server
 uvicorn main:app --reload
+```
 
+---
 
-Open:
+## ⚙ Installation (Frontend)
 
-http://127.0.0.1:8000
+```bash
+cd backend/frontend
+npm install
+npm start
+```
 
-📡 API Endpoints
-Endpoint	Function
-/scan	Scan target IP ports
-/news	Latest cybersecurity news
-/ip-reputation	Check IP threat history
-/scan-url	Malware URL analysis
-/legal	Legal disclaimer
-🔐 Security Protections
+---
 
-To make the system safe for public deployment:
+## 🔑 Environment Variables (.env)
 
-Only private/local IP scanning allowed
+```
+NVD_API_KEY=your_key_here
+ABUSEIPDB_API_KEY=your_key_here
+VIRUSTOTAL_API_KEY=your_key_here
+NEWS_API_KEY=your_key_here
+```
 
-Port range limited
+---
 
-Rate limiting enabled
+## 🧪 Demo Mode
 
-Legal notice included
+Public deployment runs in **safe demo mode**:
 
-🐞 Common Errors & Fixes
-Issue	Fix
-NVD KEY: None	Check .env variable name
-CVEs not showing	Banner parsing issue
-403 scanning error	Target IP is public
-429 error	Too many requests (rate limit)
-VirusTotal returns empty	URL not scanned before
-📌 Tech Stack
+* Real scanning disabled for external IPs
+* Simulated results shown
 
-FastAPI
+To scan your own PC → download the **Local Scanner Tool** from the dashboard.
 
-Asyncio
+---
 
-SlowAPI (Rate limiting)
+## 🛡 Legal Notice
 
-NVD API
+This tool is for **educational and authorized security testing only**.
+Do NOT scan systems without permission.
 
-AbuseIPDB
+---
 
-VirusTotal
+## 📚 What You Learn From This Project
 
-NewsAPI
+* Async networking
+* Threat intelligence integration
+* API security
+* WebSockets & real-time UI
+* Vulnerability management concepts
 
-🎯 Future Enhancements
+---
 
-Interactive dashboard UI
+## 🔮 Future Improvements
 
-User authentication
+* Real-time WebSocket scan updates
+* Advanced OS fingerprinting
+* CVSS scoring visualization
+* User accounts & history
+* Docker deployment
 
-Historical scan logs
+---
 
-Advanced OS fingerprinting
+## 👨‍💻 Author
 
-👨‍💻 Author
-
-Cybersecurity Recon & Intelligence Project
-Built for learning, research, and demonstration.
+**Sujay Chawda**
